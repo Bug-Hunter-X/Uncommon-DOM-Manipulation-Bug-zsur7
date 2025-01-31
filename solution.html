@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Corrected HTML</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      let parent = document.getElementById("myDiv").parentNode; //Get parent element
+      parent.removeChild(document.getElementById("myDiv")); // Correct way to remove an element
+
+      //Create a new element and append it to the parent
+      let newDiv = document.createElement("div");
+      newDiv.innerHTML = "This text is now visible";
+      parent.appendChild(newDiv);
+    }
+  </script>
+</body>
+</html>
