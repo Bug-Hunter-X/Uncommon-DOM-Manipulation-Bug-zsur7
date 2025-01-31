@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      // Incorrect way to remove element.  Should use parentNode.removeChild()
+      document.getElementById("myDiv").remove();
+      // Another potential issue: creating an element after removing it without re-adding it can cause further unexpected results
+      let newDiv = document.createElement("div");
+      newDiv.innerHTML = "This text won't be visible because the parent is gone";
+    }
+  </script>
+</body>
+</html>
